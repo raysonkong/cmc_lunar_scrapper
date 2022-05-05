@@ -5,8 +5,6 @@ import datetime
 import time
 from config_lc import *
 
-
-
 SLEEP_TIME = 0.2 
 # URL = 'https://api2.lunarcrush.com/v2?data=market&type=fast'
 # HOW_MANY_COINS = 100
