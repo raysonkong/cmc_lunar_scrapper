@@ -6,13 +6,19 @@ import time
 from config_lc import *
 
 SLEEP_TIME = 0.2 
+
+##
+# Setup lunarcrush.py in the same folder
+## 
+
 # URL = 'https://api2.lunarcrush.com/v2?data=market&type=fast'
-# HOW_MANY_COINS = 100
-# GROUP_SIZE = 400
+# HOW_MANY_COINS = 300
+# GROUP_SIZE = 1000 # max = 1000 due to tradingview
 
 # EXCHANGES = ['BINANCE', 'KUCOIN']
 # CURRENCIES = ['USDT', 'BTC']
 
+## end of config file
 
 
 # ====== Setup date and time ===========

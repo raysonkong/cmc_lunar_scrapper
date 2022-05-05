@@ -7,20 +7,23 @@ import os
 from config_cmc import *
 
 SLEEP_TIME = 0.2
-# API_KEY = "Your CMC api key"
+
+##
+## setup config_cmc.py in the same folder
+##
+
+# HOW_MANY_COINS = 4000
+# EXCHANGES=["BINANCE", "KUCOIN", 'BITTREX', 'HUOBI']
 
 
-# Constants from config
+# # Do not alter below easily
+# GROUP_SIZE = len(EXCHANGES) * 200
 
-#GROUP_SIZE = 400 # production mode 400 as each symbol produces 4 pairs
+# CURRENCIES = ['BTC', 'USDT']
+# API_KEY = 'Your Api  Key'
+# URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
 
-#HOW_MANY_COINS = 4000
-#EXCHANGES=["BINANCE", "KUCOIN"]
-#CURRENCIES = ['BTC', 'USDT']
-#URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
-# You should not have to touch the code below
-#===============================================
-
+## end of Config file
 
 
 
