@@ -8,7 +8,7 @@ from config_lc import *
 SLEEP_TIME = 0.2 
 
 ##
-# Setup lunarcrush.py in the same folder
+# Setup config_lc.py in the same folder
 ## 
 
 # URL = 'https://api2.lunarcrush.com/v2?data=market&type=fast'
