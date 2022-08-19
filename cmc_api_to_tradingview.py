@@ -15,6 +15,15 @@ SLEEP_TIME = 0.2
 # HOW_MANY_COINS = 4000
 # EXCHANGES=["BINANCE", "KUCOIN", 'BITTREX', 'HUOBI']
 
+### Notes on Config ### 
+# Constants 
+ # production mode 400 as each symbol produces 4 pairs(two exchange and two pair)
+ # and each Cmc Page contains 100 coins
+
+ # additional Exchange is an extra 200 output for each coin
+ # so total 5 exchange is optimal to keep each list < 1000
+
+
 
 # # Do not alter below easily
 # GROUP_SIZE = len(EXCHANGES) * 200
