@@ -8,32 +8,48 @@ from config_cmc import *
 
 SLEEP_TIME = 0.2
 
-##
+## ==================================##
 ## setup config_cmc.py in the same folder
-##
+## ==================================##
+
+## ================ ##
+## Notes on Config ## 
+## ================ ##
+  ## each cmc page has 100 coins
+  ## each txt file represents one CMC Page
+  ## and each symbol produces n * 2 outputs(BTC and USDT pairs)
+  ## Hence each page produces n * 2 * 100 outputs
+  ##(n=num of exchanges, 2 represents BTC and USDT pairs
+  ## e.g 4 exchanges, each cmc page produces 4 * 2 * 100 = 800 outputs(trading pairs) in each txt file
+
+ ## each additional exchange is 
+    ## an extra 2 outputs for each pair
+    ## Hence an extra 200 output for each page/txt file
+ ## so max 5 exchange is allowed to keep each list < 1000
+
+## ==============##
+## Config Code  ## 
+## ==============## 
+
+## HOW_MANY_COINS Determine how many coins you are getting from CMC
+## EXCHANGES determines exhanges you want
 
 # HOW_MANY_COINS = 4000
 # EXCHANGES=["BINANCE", "KUCOIN", 'BITTREX', 'HUOBI']
 
-### Notes on Config ### 
-# Constants 
- # production mode 400 as each symbol produces 4 pairs(two exchange and two pair)
- # and each Cmc Page contains 100 coins
 
- # additional Exchange is an extra 200 output for each coin
- # so total 5 exchange is optimal to keep each list < 1000
+## Do not alter below easily
 
+## Tradingview Lists limited by 1000 output per file
+## GROUP_SIZE determines output number per text file
 
-
-# # Do not alter below easily
 # GROUP_SIZE = len(EXCHANGES) * 200
-
+## CURRENCIES determine the trading pairs
 # CURRENCIES = ['BTC', 'USDT']
-# API_KEY = 'Your Api  Key'
+# API_KEY = 'Your Api Key'
 # URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
 
 ## end of Config file
-
 
 
 
