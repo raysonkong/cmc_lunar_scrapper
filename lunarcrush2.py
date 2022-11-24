@@ -98,7 +98,104 @@ def json_to_tickers(data):
         symbols.append(item["s"])
 
 json_to_tickers(parsedResponse)
-print(symbols)
+#print(symbols)
+
 
 # now symbols hold all our ..well.. symbols
+
+#================================================ # 
+# Step 2 # 
+# Helper Function
+# Convert one symbol to tradingview format with exchange currency pair, in a list
+
+exchanges = EXCHANGES
+currencies = CURRENCIES
+
+def symbol_to_tradingview(symbol):
+    one_symbol_watchlist = []
+    for exchange in exchanges:
+        for currency in currencies:
+            current_pair = ""
+            one_symbol_watchlist.append(f"{exchange}:{symbol}{currency}")
+    return one_symbol_watchlist
+
+#symbol_to_tradingview('ADA')
+
+#================================================
+# Step 3 #
+# Convert Step output, which is symbols, 
+#  to a list of trading view pair
+# using helper from Step 2
+
+def flatten(t):
+    return [item for sublist in t for item in sublist]
+
+nested_tradingview_pairs=[]
+
+for symbol in symbols:
+    nested_tradingview_pairs.append(symbol_to_tradingview(symbol))
+
+tradingview_pairs = flatten(nested_tradingview_pairs)
+#print(tradingview_pairs)
+
+#================================================
+# Step 4 #
+# Group output from step 3
+# to a list containing lists of n 
+
+# Group size, in production n=400
+n=GROUP_SIZE
+
+def group_into_n(data_list, n):
+    return [data_list[i:i+n] for i in range(0, len(data_list), n)]
+
+#test = [1,2,3,4,5,6,7,8]
+#print(group_into_n(test, n))
+
+grouped_pairs = group_into_n(tradingview_pairs, n)
+
+#print(grouped_pairs)
+
+#================================================
+# Step 5 #
+
+# write a function to output each of the group in step 4 
+# to a separate file
+
+
+#def output_to_text_file(nested_grouped_pairs):
+#    for idx, group in enumerate(nested_grouped_pairs):
+#        with open(f'{idx+1}CMC p.{idx+1} {generation_date}.txt ', 'w') as f:
+#            for pair in group:
+#                f.write("%s,\n" % pair)
+
+
+# /Users/raysonkong/code/python/webscrapping/scripts_v2/cmc_api_to_tradingview/outputs
+def output_to_text_file(nested_grouped_pairs):
+    for idx, group in enumerate(nested_grouped_pairs):
+            filename=f"{os.getcwd()}/LC_{generation_date}total{HOW_MANY_COINS}/{idx+1}.LC p.{idx+1} ({generation_date}).txt"
+            os.makedirs(os.path.dirname(filename), exist_ok=True)
+            with open(filename, "w") as f:
+                for pair in group:
+                  f.write("%s,\n" % pair)
+
+#output_to_text_file(grouped_pairs)
+
+
+def run_srapper():
+    #print("================ Getting Lunar Crush Data =======================")
+
+    output_to_text_file(grouped_pairs)
+
+    #time.sleep(SLEEP_TIME)
+    #print("Latest Symbol Files are created Successfully!")
+    print("\n")
+
+    print("== LunarCrush Scrapping Completed ==")
+    print('\n')
+    print("======================================================")
+if __name__ =='__main__':
+    run_srapper()
+
+
 

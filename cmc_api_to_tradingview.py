@@ -187,27 +187,12 @@ def output_to_text_file(nested_grouped_pairs):
 
 def run_srapper():
     os.system('clear')
-    print("================ Getting Data =======================")
-    print("\n")
     output_to_text_file(grouped_pairs)
 
-    time.sleep(SLEEP_TIME)
-    print("Requesting Data from CoinMarketCap...")
-    time.sleep(SLEEP_TIME)
-    print("...")
-    time.sleep(SLEEP_TIME)
-    print("Parsing Data...")
-    print("...")
-    time.sleep(SLEEP_TIME)
-    print("Outputting Data to files...")
-    time.sleep(SLEEP_TIME)
-    print("....")
-    print("Latest Symbol Files are created Successfully!")
-    print("\n")
 
-    print("================= Scrapping Completed ================")
+    print("== CMC Scrapping Completed ==")
     print('\n')
-    print("======================================================")
+    #print("======================================================")
 if __name__ =='__main__':
     run_srapper()
 
