@@ -69,7 +69,10 @@ current_time = time.strftime("%H:%M:%S", t)
 
 #generation_time = now.strftime("%H:%M:%S")
 
+##======================================= ## 
 ## API Call ### 
+##======================================= ## 
+
 import requests
 
 url = URL
@@ -91,6 +94,7 @@ parsedResponse = json.loads(data.decode('utf-8'))['data']
 # Step 1 #
 # Turn Json response to a list of symbols
 # [ 'BTC', "ETH", ...] 
+##======================================= ## 
 
 symbols = []
 def json_to_tickers(data):
@@ -107,6 +111,7 @@ json_to_tickers(parsedResponse)
 # Step 2 # 
 # Helper Function
 # Convert one symbol to tradingview format with exchange currency pair, in a list
+##======================================= ## 
 
 exchanges = EXCHANGES
 currencies = CURRENCIES
@@ -126,6 +131,7 @@ def symbol_to_tradingview(symbol):
 # Convert Step output, which is symbols, 
 #  to a list of trading view pair
 # using helper from Step 2
+##======================================= ## 
 
 def flatten(t):
     return [item for sublist in t for item in sublist]
@@ -142,6 +148,7 @@ tradingview_pairs = flatten(nested_tradingview_pairs)
 # Step 4 #
 # Group output from step 3
 # to a list containing lists of n 
+##======================================= ## 
 
 # Group size, in production n=400
 n=GROUP_SIZE
@@ -161,6 +168,7 @@ grouped_pairs = group_into_n(tradingview_pairs, n)
 
 # write a function to output each of the group in step 4 
 # to a separate file
+##======================================= ## 
 
 
 #def output_to_text_file(nested_grouped_pairs):
