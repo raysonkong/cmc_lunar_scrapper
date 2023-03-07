@@ -122,7 +122,7 @@ def symbol_to_tradingview(symbol):
     for exchange in exchanges:
         for currency in currencies:
             current_pair = ""
-            one_symbol_watchlist.append(f"{exchange}:{symbol}{currency}")
+            one_symbol_watchlist.append(f"{exchange}:{symbol.replace('-', '')}{currency}")
     return one_symbol_watchlist
 
 #symbol_to_tradingview('ADA')

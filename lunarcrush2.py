@@ -81,7 +81,9 @@ headers = {
 }
 
 parameters = {
-	'limit': HOW_MANY_COINS
+	'limit': HOW_MANY_COINS,
+    "sort": 'alt_rank',
+    'desc': 1
 }
 
 response = requests.request("GET", url, headers=headers,params=parameters)
